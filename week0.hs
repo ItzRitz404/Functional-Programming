@@ -1,2 +1,2 @@
-sqaure : : Int -> Int
+square :: Int -> Int
 square n = n * n
