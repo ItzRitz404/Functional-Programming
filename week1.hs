@@ -20,8 +20,12 @@ distance x1 y1 x2 y2 = sqrt (((y1 - y2)^2) + ((x1 - x2)^2))
 
 -- 6
 threeDifferent :: Int -> Int -> Int -> Bool
-threeDifferent a b c = a /= b && c /= b && a /= c 
+threeDifferent a b c = a /= b && c /= b && a /= c
 
 -- 7
 divisibleBy :: Int -> Int -> Bool
 divisibleBy a b = a `mod` b == 0
+
+-- 8
+isEven :: Int -> Bool
+isEven = even
