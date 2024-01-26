@@ -29,3 +29,7 @@ divisibleBy a b = a `mod` b == 0
 -- 8
 isEven :: Int -> Bool
 isEven = even
+
+-- 9
+averageThree :: Int -> Int -> Int -> Float
+averageThree a b c = (fromIntegral a + fromIntegral b + fromIntegral c) / 3
