@@ -33,3 +33,7 @@ isEven = even
 -- 9
 averageThree :: Int -> Int -> Int -> Float
 averageThree a b c = (fromIntegral a + fromIntegral b + fromIntegral c) / 3
+
+-- 10
+absolute :: Int -> Int 
+absolute a = if a >= 0 then a else -a
