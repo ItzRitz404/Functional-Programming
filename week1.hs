@@ -16,7 +16,7 @@ volumeOfCylinder h r = pi * r^2 * h
 
 -- 5
 distance :: Float -> Float -> Float -> Float -> Float
-distance x1 y1 x2 y2 = sqrt (((y1 - y2)^2) + ((x1 - x2)^2))
+distance x1 y1 x2 y2 = sqrt ((y1 - y2)^2 + (x1 - x2)^2)
 
 -- 6
 threeDifferent :: Int -> Int -> Int -> Bool
