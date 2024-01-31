@@ -35,6 +35,12 @@ sign number
 -- 3
 howManyEqual :: Int -> Int -> Int -> Int
 howManyEqual a b c
-    | a == b && b == c = 3
-    | a == b || a == c || b == c = 2
-    | otherwise = 0
+  | a == b && b == c = 3
+  | a == b || a == c || b == c = 2
+  | otherwise = 0
+
+-- 4
+sumDiagonalLengths :: Float -> Float -> Float -> Float
+sumDiagonalLengths s1 s2 s3 = diagonalLength s1 + diagonalLength s2 + diagonalLength s3
+  where
+    diagonalLength sideLength = sqrt (2 * sideLength ^ 2)
