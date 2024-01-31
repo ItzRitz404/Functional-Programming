@@ -44,3 +44,6 @@ sumDiagonalLengths :: Float -> Float -> Float -> Float
 sumDiagonalLengths s1 s2 s3 = diagonalLength s1 + diagonalLength s2 + diagonalLength s3
   where
     diagonalLength sideLength = sqrt (2 * sideLength ^ 2)
+
+--5
+taxiFare :: Int -> Float
