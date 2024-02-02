@@ -47,3 +47,10 @@ sumDiagonalLengths s1 s2 s3 = diagonalLength s1 + diagonalLength s2 + diagonalLe
 
 --5
 taxiFare :: Int -> Float
+taxiFare km
+  | km <= 10 = 2.2 + 0.5 * fromIntegral km
+  | otherwise = 7.2 + 0.3 * fromIntegral km
+
+--6
+howManyAboveAverage :: Int -> Int -> Int -> Int
+howManyAboveAverage a b c = length [x | x <- [a, b, c], x > fromIntegral(a + b + c) `div` 3]
