@@ -1,3 +1,4 @@
+import Data.Time.Calendar.MonthDay (monthAndDayToDayOfYear)
 -- example 1
 heartMonitor :: Int -> Int -> String
 heartMonitor age bpm
@@ -54,3 +55,71 @@ taxiFare km
 --6
 howManyAboveAverage :: Int -> Int -> Int -> Int
 howManyAboveAverage a b c = length [x | x <- [a, b, c], x > fromIntegral(a + b + c) `div` 3]
+
+--7
+validDate :: Int -> Int -> Bool
+validDate day month
+  | month < 1 || month > 12 = False
+  | month `elem` [1,3,5,7,8,10,12] && day <= 31 = True
+  | month `elem` [4,6,9,11] && day <= 30 = True
+  | month == 2 && day <=28 = True
+  | otherwise = False
+
+--8
+daysInMonth :: Int -> Int -> Int
+daysInMonth month year 
+  | month `elem` [1,3,5,7,8,10,12] = 31
+  | month `elem` [4,6,9,11] = 30
+  | month == 2 && isLeapYear year == 0 = 29
+  | otherwise = 28
+  where
+    isLeapYear year = year `mod` 4
+
+-- written exercises
+
+{- 
+
+sumThree 3 5 7
+  3 + 5 + 7      Def of sumThree
+  8 + 7          Arithmetic
+  15             Arithmetic
+
+sumThree 8 (1 + 3) 2
+  8 + (1 + 3) + 2     Def of sumThree
+  8 + 4 + 2           Arithmetic
+  12 + 2              Arithmetic
+  14                  Arithmetic  
+
+threeDifferent 1 4 2
+  1 /= 4 && 4 /= 2 && 1 /= 2     Def of threeDifferent
+  True && 4 /= 2 && 1 /= 2       Comparison
+  True && True && 1 /= 2         Comparison
+  True && True && True           Comparison
+  True && True                   Comparison
+  True                           Result
+
+threeDifferent 1 7 7
+  1 /= 7 && 7 /= 7 && 1 /= 7     Def of threeDifferent
+  True && False && 1 /= 7        Comparison
+  True && False && True          Comparison
+  True && False                  Comparison
+  False                          Comparison
+
+howManyEqual 3 5 2
+  3 == 5 || 3 == 2 || 5 == 2     Def of howManyEqual
+  False || 3 == 2 || 5 == 2      Comparison
+  False || False || 5 == 2       Comparison
+  False || False || False        Comparison
+  False || False                 Comparison
+  False                          Comparison
+  0                              Result
+
+howManyEqual 5 2 5
+  5 == 2 || 5 == 5 || 2 == 5     Def of howManyEqual
+  False || 5 == 5 || 2 == 5      Comparison
+  False || True || 2 == 5        Comparison
+  False || True || False         Comparison
+  False || True                  Comparison
+  True                           Comparison
+  1                              Result
+-}
