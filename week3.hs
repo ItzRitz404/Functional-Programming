@@ -46,4 +46,89 @@ divide n m
   | otherwise = 1 + divide (n - m) m
 -}
 
+import Prelude hiding (gcd, (&&), (||))
+-- import Main (validDate)
+-- Remove the import statement for Main (daysInMonth)
+-- import week2.hs (daysInMonth)
 
+infixr 3 &&
+
+-- examples
+
+nor :: Bool -> Bool -> Bool
+nor False x = not x
+nor True x = False
+
+fibonacci :: Int -> Int
+fibonacci n
+  | n == 0 = 0
+  | n == 1 = 1
+  | otherwise = fibonacci (n - 1) + fibonacci (n - 2)
+
+-- fibonacci 0 = 0
+-- fibonacci 1 = 1
+-- fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
+
+-- 1
+
+(&&) :: Bool -> Bool -> Bool
+False && _ = False
+True && x = x
+
+-- False && False = False
+-- False && True = False
+-- True && False = False
+-- True && True = True
+
+-- _ && False = False
+-- _ && _ = True
+
+-- 2
+
+-- exOr :: Bool -> Bool -> Bool
+-- exOr False True = True
+-- exOr True False = True
+-- exOr a b = False
+
+exOr :: Bool -> Bool -> Bool
+exOr True b = not b
+exOr a True = not a
+exOr _ _ = False
+
+-- 3
+ifThenElse :: Bool -> Int -> Int -> Int
+ifThenElse True x _ = x
+ifThenElse _ _ y = y
+
+--4
+daysInMonth :: Int -> Int
+daysInMonth 2 = 28
+daysInMonth 4 = 30
+daysInMonth 6 = 30
+daysInMonth 9 = 30
+daysInMonth 11 = 30
+daysInMonth _ = 31
+
+validDate :: Int -> Int -> Bool
+validDate d m = d > 0 && d <= daysInMonth m
+
+--5
+sumNumbers :: Int -> Int
+sumNumbers 0 = 0
+sumNumbers n = n + sumNumbers (n - 1)
+
+--6
+sumSquares :: Int -> Int
+sumSquares 0 = 0
+sumSquares n = n ^ 2 + sumSquares (n - 1)
+
+--7
+power :: Int -> Int -> Int
+power _ 0 = 1
+power x y = x * power x (y - 1)
+
+--8 
+sumFromTo :: Int -> Int -> Int
+sumFromTo x y
+  | x > y = 0
+  | otherwise = x + sumFromTo (x + 1) y

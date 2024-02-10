@@ -1,4 +1,5 @@
 import Data.Time.Calendar.MonthDay (monthAndDayToDayOfYear)
+
 -- example 1
 heartMonitor :: Int -> Int -> String
 heartMonitor age bpm
@@ -46,30 +47,30 @@ sumDiagonalLengths s1 s2 s3 = diagonalLength s1 + diagonalLength s2 + diagonalLe
   where
     diagonalLength sideLength = sqrt (2 * sideLength ^ 2)
 
---5
+-- 5
 taxiFare :: Int -> Float
 taxiFare km
   | km <= 10 = 2.2 + 0.5 * fromIntegral km
   | otherwise = 7.2 + 0.3 * fromIntegral km
 
---6
+-- 6
 howManyAboveAverage :: Int -> Int -> Int -> Int
-howManyAboveAverage a b c = length [x | x <- [a, b, c], x > fromIntegral(a + b + c) `div` 3]
+howManyAboveAverage a b c = length [x | x <- [a, b, c], x > fromIntegral (a + b + c) `div` 3]
 
---7
+-- 7
 validDate :: Int -> Int -> Bool
 validDate day month
   | month < 1 || month > 12 = False
-  | month `elem` [1,3,5,7,8,10,12] && day <= 31 = True
-  | month `elem` [4,6,9,11] && day <= 30 = True
-  | month == 2 && day <=28 = True
+  | month `elem` [1, 3, 5, 7, 8, 10, 12] && day <= 31 = True
+  | month `elem` [4, 6, 9, 11] && day <= 30 = True
+  | month == 2 && day <= 28 = True
   | otherwise = False
 
---8
+-- 8
 daysInMonth :: Int -> Int -> Int
-daysInMonth month year 
-  | month `elem` [1,3,5,7,8,10,12] = 31
-  | month `elem` [4,6,9,11] = 30
+daysInMonth month year
+  | month `elem` [1, 3, 5, 7, 8, 10, 12] = 31
+  | month `elem` [4, 6, 9, 11] = 30
   | month == 2 && isLeapYear year == 0 = 29
   | otherwise = 28
   where
@@ -77,7 +78,7 @@ daysInMonth month year
 
 -- written exercises
 
-{- 
+{-
 
 sumThree 3 5 7
   3 + 5 + 7      Def of sumThree
@@ -88,7 +89,7 @@ sumThree 8 (1 + 3) 2
   8 + (1 + 3) + 2     Def of sumThree
   8 + 4 + 2           Arithmetic
   12 + 2              Arithmetic
-  14                  Arithmetic  
+  14                  Arithmetic
 
 threeDifferent 1 4 2
   1 /= 4 && 4 /= 2 && 1 /= 2     Def of threeDifferent
