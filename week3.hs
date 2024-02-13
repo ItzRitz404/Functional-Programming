@@ -47,11 +47,6 @@ divide n m
 -}
 
 import Prelude hiding (gcd, (&&), (||))
--- import Main (validDate)
--- Remove the import statement for Main (daysInMonth)
--- import week2.hs (daysInMonth)
-
-infixr 3 &&
 
 -- examples
 
@@ -132,3 +127,10 @@ sumFromTo :: Int -> Int -> Int
 sumFromTo x y
   | x > y = 0
   | otherwise = x + sumFromTo (x + 1) y
+
+--9
+absolute :: Int -> Int
+absolute number
+  | number >= 0 = number
+  | otherwise = -number
+
