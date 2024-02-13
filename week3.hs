@@ -47,6 +47,7 @@ divide n m
 -}
 
 import Prelude hiding (gcd, (&&), (||))
+infixr 4 &&
 
 -- examples
 
@@ -105,7 +106,7 @@ daysInMonth 11 = 30
 daysInMonth _ = 31
 
 validDate :: Int -> Int -> Bool
-validDate d m = d > 0 && d <= daysInMonth m
+validDate d m = (d > 0) && (d <= daysInMonth m)
 
 --5
 sumNumbers :: Int -> Int
@@ -126,7 +127,7 @@ power x y = x * power x (y - 1)
 sumFromTo :: Int -> Int -> Int
 sumFromTo x y
   | x > y = 0
-  | otherwise = x + sumFromTo (x + 1) y
+  | otherwise = x + sumFromTo (x + 1) y  
 
 --9
 absolute :: Int -> Int
@@ -134,3 +135,19 @@ absolute number
   | number >= 0 = number
   | otherwise = -number
 
+gcd :: Int -> Int -> Int
+gcd x y
+  | x == y = x
+  | x > y = gcd difference y
+  | otherwise = gcd x difference
+  where
+    difference = absolute (x - y)
+
+--10
+intSquareRoot :: Int -> Int
+intSquareRoot n = findRoot n n
+
+findRoot :: Int -> Int -> Int
+findRoot n x
+  | x ^ 2 > n = findRoot n (x - 1)
+  | otherwise = x
