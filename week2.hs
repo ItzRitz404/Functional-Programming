@@ -49,19 +49,25 @@ sumDiagonalLengths s1 s2 s3 = diagonalLength (s1 + s2 + s3)
 
 -- 5
 taxiFare :: Int -> Float
-taxiFare km
-  | km <= 10 = 2.2 + 0.5 * fromIntegral km
-  | otherwise = 7.2 + 0.3 * fromIntegral km
+taxiFare d = 2.20 + rest
+  where
+    rest
+      | d <= 10 = 0.5 * fromIntegral d
+      | otherwise = 5 *  fromIntegral (d - 10) * 0.30
+-- taxiFare km
+--   | km <= 10 = 2.2 + 0.5 * fromIntegral km
+--   | otherwise = 7.2 + 0.3 * fromIntegral km
 
 -- 6
-howManyAboveAverage :: Int -> Int -> Int -> Int
-howManyAboveAverage a b c
-  | a > average && b > average && c > average = 3
-  | a > average && b > average || a > average && c > average || b > average && c > average = 2
-  | a > average || b > average || c > average = 1
-  | otherwise = 0
-  where
-    average = fromIntegral (a + b + c) `div` 3
+-- howManyAboveAverage :: Int -> Int -> Int -> Int
+-- howManyAboveAverage a b c
+--   -- | a > average && b > average && c > average = 3
+--   | f a > average && f b > average || a > average && c > average || b > average && c > average = 2
+--   | a > average || b > average || c > average = 1
+--   | otherwise = 0
+--   where
+--     average = fromIntegral (a + b + c) / 3
+--     f = fromIntegral
 
 -- 7
 validDate :: Int -> Int -> Bool

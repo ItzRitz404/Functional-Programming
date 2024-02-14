@@ -76,9 +76,6 @@ True && x = x
 -- True && False = False
 -- True && True = True
 
--- _ && False = False
--- _ && _ = True
-
 -- 2
 
 -- exOr :: Bool -> Bool -> Bool
@@ -86,10 +83,14 @@ True && x = x
 -- exOr True False = True
 -- exOr a b = False
 
+-- exOr :: Bool -> Bool -> Bool
+-- exOr True b = not b
+-- exOr a True = not a
+-- exOr _ _ = False
+
 exOr :: Bool -> Bool -> Bool
-exOr True b = not b
-exOr a True = not a
-exOr _ _ = False
+exOr a b = a /= b
+
 
 -- 3
 ifThenElse :: Bool -> Int -> Int -> Int
@@ -127,7 +128,7 @@ power x y = x * power x (y - 1)
 sumFromTo :: Int -> Int -> Int
 sumFromTo x y
   | x > y = 0
-  | otherwise = x + sumFromTo (x + 1) y  
+  | otherwise = x + sumFromTo (x + 1) y
 
 --9
 absolute :: Int -> Int
@@ -138,10 +139,12 @@ absolute number
 gcd :: Int -> Int -> Int
 gcd x y
   | x == y = x
-  | x > y = gcd difference y
-  | otherwise = gcd x difference
-  where
-    difference = absolute (x - y)
+  | otherwise = gcd (abs (x - y)) (min x y)
+  -- | x == y = x
+  -- | x > y = gcd difference y
+  -- | otherwise = gcd x difference
+  -- where
+  --   difference = absolute (x - y)
 
 --10
 intSquareRoot :: Int -> Int
