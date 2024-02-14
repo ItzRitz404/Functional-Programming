@@ -1,3 +1,4 @@
+import Control.Arrow (Arrow(first))
 sumEvenNumbersBetween :: Int -> Int -> Int
 sumEvenNumbersBetween x y = sum [i | i <- [x .. y], mod i 2 == 0]
 sumEvenNumbersBetween x y
@@ -38,3 +39,7 @@ capMark (name, mark)
 --4
 firstNumbers :: Int -> [Int]
 firstNumbers n = [1..n]
+
+--5
+firstSquares :: Int -> [Int]
+firstSquares n = [x^2 | x <- [1..n]]

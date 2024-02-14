@@ -47,7 +47,8 @@ divide n m
 -}
 
 import Prelude hiding (gcd, (&&), (||))
-infixr 4 &&
+infixr 3 &&
+
 
 -- examples
 
@@ -66,7 +67,6 @@ fibonacci n
 -- fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
 
 -- 1
-
 (&&) :: Bool -> Bool -> Bool
 False && _ = False
 True && x = x

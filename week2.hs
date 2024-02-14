@@ -43,7 +43,7 @@ howManyEqual a b c
 
 -- 4
 sumDiagonalLengths :: Float -> Float -> Float -> Float
-sumDiagonalLengths s1 s2 s3 = diagonalLength s1 + diagonalLength s2 + diagonalLength s3
+sumDiagonalLengths s1 s2 s3 = diagonalLength (s1 + s2 + s3)
   where
     diagonalLength sideLength = sqrt (2 * sideLength ^ 2)
 
@@ -55,7 +55,13 @@ taxiFare km
 
 -- 6
 howManyAboveAverage :: Int -> Int -> Int -> Int
-howManyAboveAverage a b c = length [x | x <- [a, b, c], x > fromIntegral (a + b + c) `div` 3]
+howManyAboveAverage a b c 
+  | a > average && b > average && c > average = 3
+  | a > average && b > average || a > average && c > average || b > average && c > average = 2
+  | a > average || b > average || c > average = 1
+  | otherwise = 0
+  where
+    average = fromIntegral (a + b + c) `div` 3
 
 -- 7
 validDate :: Int -> Int -> Bool
