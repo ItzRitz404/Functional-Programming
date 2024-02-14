@@ -55,7 +55,7 @@ taxiFare km
 
 -- 6
 howManyAboveAverage :: Int -> Int -> Int -> Int
-howManyAboveAverage a b c 
+howManyAboveAverage a b c
   | a > average && b > average && c > average = 3
   | a > average && b > average || a > average && c > average || b > average && c > average = 2
   | a > average || b > average || c > average = 1
