@@ -1,4 +1,4 @@
-import Control.Arrow (Arrow(first))
+import Data.Char
 sumEvenNumbersBetween :: Int -> Int -> Int
 sumEvenNumbersBetween x y = sum [i | i <- [x .. y], mod i 2 == 0]
 sumEvenNumbersBetween x y
@@ -43,3 +43,17 @@ firstNumbers n = [1..n]
 --5
 firstSquares :: Int -> [Int]
 firstSquares n = [x^2 | x <- [1..n]]
+
+--6
+capitalise :: String -> String
+capitalise x = [toUpper y | y <- x]
+
+--7
+onlyDigits :: String -> String
+onlyDigits x = [y | y <- x, isDigit y]
+
+--8
+capMarks :: [StudentMark] -> [StudentMark]
+capMarks studentMarks = [capMark x | x <- studentMarks]
+
+--9
