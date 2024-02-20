@@ -1,4 +1,6 @@
 import Data.Char
+import System.Win32 (duplicateHandle)
+import Data.ByteString.Char8 (split)
 sumEvenNumbersBetween x y
     | x > y = 0
     | mod x 2 == 0 = x + sumEvenNumbersBetween (x + 2) y
@@ -59,3 +61,19 @@ gradeStudents :: [StudentMark] -> [(String, Char)]
 gradeStudents stmks = [(name, grade (name, mark)) | (name, mark) <- stmks]
 
 --10
+duplicate :: String -> Int -> String
+duplicate str n
+    | n == 0 = ""
+    | otherwise = str ++ duplicate str (n - 1)
+
+--11
+divisors :: Int -> [Int]
+divisors n = [x | x <- [1..n], mod n x == 0]
+
+--12
+isPrime :: Int -> Bool
+isPrime n = length (divisors n) == 2
+
+--13
+split :: [a, b] -> ([a], [b])
+split 
