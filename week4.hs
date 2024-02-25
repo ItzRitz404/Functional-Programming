@@ -59,15 +59,29 @@ firstSquares n = [x^2 | x <- [1..n]]
 
 --6
 capitalise :: String -> String
-capitalise x = [toUpper y | y <- x]
+capitalise n = [toUpper x | x <- n]
 
 --7
 onlyDigits :: String -> String
-onlyDigits x = [y | y <- x, isDigit y]
+onlyDigits n = [x| x <- n, isDigit x]
 
 --8
 capMarks :: [StudentMark] -> [StudentMark]
-capMarks studentMarks = [capMark x | x <- studentMarks]
+capMarks stmks = [capMark (name, mark) | (name, mark) <- stmks]
+
+--9
+gradeStudents :: [StudentMark] -> [(String, Char)]
+gradeStudents stmks = [(name, grade (name, mark)) | (name, mark) <- stmks]
+
+--10
+duplicate :: String -> Int -> String
+duplicate str n
+    | n == 0 = ""
+    | otherwise = str ++ duplicate str (n - 1)
+
+--11
+divisors :: Int -> [Int]
+divisors n = [x | x <- [1..n], mod n x == 0]
 
 --9
 gradeStudents :: [StudentMark] -> [(String, Char)]
