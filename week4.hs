@@ -86,4 +86,8 @@ isPrime :: Int -> Bool
 isPrime n = divisors n == [1, n]
 
 --13
+split :: [(a, b)] -> ([a], [b])
+split x = ([fst y | y <- x], [snd y | y <- x])
 
+split2 :: [(a, b)] -> ([a], [b])
+split2 x = ([x | (x, _) <- x], [y | (_, y) <- x])
