@@ -71,27 +71,13 @@ capMarks stmks = [capMark (name, mark) | (name, mark) <- stmks]
 
 --9
 gradeStudents :: [StudentMark] -> [(String, Char)]
-gradeStudents stmks = [(name, grade (name, mark)) | (name, mark) <- stmks]
-
---10
-duplicate :: String -> Int -> String
-duplicate str n
-    | n == 0 = ""
-    | otherwise = str ++ duplicate str (n - 1)
-
---11
-divisors :: Int -> [Int]
-divisors n = [x | x <- [1..n], mod n x == 0]
-
---9
-gradeStudents :: [StudentMark] -> [(String, Char)]
 gradeStudents studentMarks = [(name, grade (name, mark)) | (name, mark) <- studentMarks]
 
 --10
 duplicate :: String -> Int -> String
 duplicate x n = concat [x | _ <- [1..n]]
 
---11 
+--11
 divisors :: Int -> [Int]
 divisors n = [x | x <- [1..n], mod n x == 0]
 
