@@ -1,4 +1,17 @@
 import Data.Char
+
+testData :: [StudentMark]
+testData =
+  [ ("John", 53),
+    ("Sam", 16),
+    ("Kate", 85),
+    ("Jill", 65),
+    ("Bill", 37),
+    ("Amy", 22),
+    ("Jack", 41),
+    ("Sue", 71)
+  ]
+
 sumEvenNumbersBetween :: Int -> Int -> Int
 sumEvenNumbersBetween x y = sum [i | i <- [x .. y], mod i 2 == 0]
 sumEvenNumbersBetween x y
@@ -57,3 +70,20 @@ capMarks :: [StudentMark] -> [StudentMark]
 capMarks studentMarks = [capMark x | x <- studentMarks]
 
 --9
+gradeStudents :: [StudentMark] -> [(String, Char)]
+gradeStudents studentMarks = [(name, grade (name, mark)) | (name, mark) <- studentMarks]
+
+--10
+duplicate :: String -> Int -> String
+duplicate x n = concat [x | _ <- [1..n]]
+
+--11 
+divisors :: Int -> [Int]
+divisors n = [x | x <- [1..n], mod n x == 0]
+
+--12
+isPrime :: Int -> Bool
+isPrime n = divisors n == [1, n]
+
+--13
+
