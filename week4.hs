@@ -55,7 +55,7 @@ firstNumbers n = [1..n]
 
 --5
 firstSquares :: Int -> [Int]
-firstSquares n = [x^2 | x <- [1..n]]
+firstSquares n = [x ^ 2 | x <- [1..n]]
 
 --6
 capitalise :: String -> String
@@ -67,7 +67,7 @@ onlyDigits n = [x| x <- n, isDigit x]
 
 --8
 capMarks :: [StudentMark] -> [StudentMark]
-capMarks stmks = [capMark (name, mark) | (name, mark) <- stmks]
+capMarks stmks = [capMark stmk | stmk <- stmks]
 
 --9
 gradeStudents :: [StudentMark] -> [(String, Char)]
@@ -75,7 +75,7 @@ gradeStudents studentMarks = [(name, grade (name, mark)) | (name, mark) <- stude
 
 --10
 duplicate :: String -> Int -> String
-duplicate x n = concat [x | _ <- [1..n]]
+duplicate str n = concat [str | _ <- [1..n]]
 
 --11
 divisors :: Int -> [Int]
