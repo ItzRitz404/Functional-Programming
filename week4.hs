@@ -34,7 +34,7 @@ sumDifference x y = (x + y, x - y)
 
 --2
 grade :: StudentMark -> Char
-grade(_, mark)
+grade (_, mark)
     | mark > 100 || mark < 0 = error "Invalid mark"
     | mark >= 70 = 'A'
     | mark >= 60 = 'B'
