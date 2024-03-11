@@ -55,3 +55,37 @@ duplicateHead (x : xs) = x : x : xs
 rotate :: [a] -> [a]
 rotate [] = []
 rotate (x : xs) = xs ++ [x]
+
+-- 4
+listLength :: [a] -> Int
+listLength [] = 0
+listLength (_ : xs) = 1 + listLength xs
+
+-- 5
+multAll :: [Int] -> Int
+multAll [] = 1
+multAll (x : xs) = x * multAll xs
+
+-- 6
+andAll :: [Bool] -> Bool
+andAll [] = True
+andAll (x : xs) = x && andAll xs
+
+-- 7
+orAll :: [Bool] -> Bool
+orAll [] = False
+orAll (x : xs) = x || orAll xs
+
+-- 8
+countIntegers :: Int -> [Int] -> Int
+countIntegers _ [] = 0
+countIntegers c (x : xs)
+  | c == x = 1 + countIntegers c xs
+  | otherwise = countIntegers c xs
+
+-- 9
+removeAll :: Int -> [Int] -> [Int]
+removeAll _ [] = 0
+removeAll i (x : xs)
+  | i == x = removeAll i xs
+  | otherwise = x removeAll i xs
