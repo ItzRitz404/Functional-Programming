@@ -69,7 +69,12 @@ alwaysPositive n = and . map (\x -> n x > 0)
 
 --9
 productSquareRoots :: [Float] -> Float
-productSquareRoots = foldr (\x n -> if x >= 0 then sqrt x * n else n) 1.0
+-- productSquareRoots = foldr (\x n -> if x >= 0 then sqrt x * n else n) 1.0
+productSquareRoots = foldr squareRoot 1.0
+    where
+        squareRoot x n 
+            | x >= 0 = sqrt x * n
+            | otherwise = n
 
 --10
 removeFirst :: (a -> Bool) -> [a] -> [a]
