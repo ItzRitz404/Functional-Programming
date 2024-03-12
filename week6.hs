@@ -26,12 +26,44 @@ keepDigits :: String -> String
 keepDigits = filter isDigit
 
 addUp :: [Int] -> Int
-addUp = foldr (+) 0 
+addUp = foldr (+) 0
 
 myConcat :: [[a]] -> [a]
 myConcat = foldr (++) []
 
-
 --1
 mult10 :: [Int] -> [Int]
 mult10 = map (*10)
+
+--2
+onlyLowerCase :: String -> String
+onlyLowerCase = filter isLower
+
+
+--3
+orAll :: [Bool] -> Bool
+orAll = foldr (||) False
+
+--4
+sumSquare :: [Int] -> Int
+sumSquare = foldr (\x y -> x^2 + y) 0
+
+--5
+zeroToTen :: [Int] -> [Int]
+zeroToTen = filter (\x -> x >= 0 && x <= 10)
+
+--6
+squareRoots :: [Float] -> [Float]
+squareRoots = map sqrt
+
+--7
+countBetween :: Float -> Float -> [Float] -> Int
+countBetween x y = length . filter (\n -> n >= x && n <= y)
+
+--8
+alwaysPositive :: (Float -> Float) -> [Float] -> Bool
+alwaysPositive n = and . map (\x -> n x > 0)
+
+--9
+productSquareRoots :: [Float] -> Float
+productSquareRoots = foldr (\x n -> if x >= 0 then sqrt x * n else n) 1.0
