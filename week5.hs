@@ -1,9 +1,17 @@
+
+
+
 {- Week5.hs
  This file illustrates list patterns and recursion over lists.
 -}
 
 -- import Main (duplicate)
 import Prelude hiding (concat, fst, head, reverse, snd, sum, tail, zip)
+
+type StudentMark = (String, Int)
+testData :: [StudentMark]
+testData = [ ("John", 53),("Sam", 16),("Kate", 85),("Jill", 65),("Bill", 37),("Amy", 22),("Jack", 41),("Sue", 71)]
+
 
 -- Definitions of the prelude functions fst and snd
 
@@ -79,13 +87,35 @@ orAll (x : xs) = x || orAll xs
 -- 8
 countIntegers :: Int -> [Int] -> Int
 countIntegers _ [] = 0
-countIntegers c (x : xs)
-  | c == x = 1 + countIntegers c xs
-  | otherwise = countIntegers c xs
+countIntegers n (x : xs)
+  | n == x = 1 + countIntegers n xs
+  | otherwise = countIntegers n xs
 
 -- 9
 removeAll :: Int -> [Int] -> [Int]
-removeAll _ [] = 0
-removeAll i (x : xs)
-  | i == x = removeAll i xs
-  | otherwise = x removeAll i xs
+removeAll _ [] = []
+removeAll n (x : xs)
+  | n == x = removeAll n xs
+  | otherwise = x : removeAll n xs
+
+
+-- 10
+removeAllButFirst :: Int -> [Int] -> [Int]
+removeAllButFirst n (x : xs)
+  | n == x = x : removeAll n xs
+  | otherwise = x : removeAllButFirst n xs
+
+-- 11
+listMarks :: String -> [StudentMark] -> [Int]
+listMarks _ [] = []
+listMarks name ((n, m) : xs)
+  | name == n = m : listMarks name xs
+  | otherwise = listMarks name xs
+
+-- 12
+sorted :: [Int] -> Bool
+sorted [] = True
+sorted [_] = True
+sorted (x : y : xs)
+  | x <= y = sorted (y : xs)
+  | otherwise = False
