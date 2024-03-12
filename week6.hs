@@ -30,3 +30,8 @@ addUp = foldr (+) 0
 
 myConcat :: [[a]] -> [a]
 myConcat = foldr (++) []
+
+
+--1
+mult10 :: [Int] -> [Int]
+mult10 = map (*10)
