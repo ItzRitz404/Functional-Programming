@@ -1,17 +1,16 @@
-
-
-
 {- Week5.hs
  This file illustrates list patterns and recursion over lists.
 -}
 
 -- import Main (duplicate)
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use foldr" #-}
 import Prelude hiding (concat, fst, head, reverse, snd, sum, tail, zip)
 
 type StudentMark = (String, Int)
-testData :: [StudentMark]
-testData = [ ("John", 53),("Sam", 16),("Kate", 85),("Jill", 65),("Bill", 37),("Amy", 22),("Jack", 41),("Sue", 71)]
 
+testData :: [StudentMark]
+testData = [("John", 53), ("Sam", 16), ("Kate", 85), ("Jill", 65), ("Bill", 37), ("Amy", 22), ("Jack", 41), ("Sue", 71)]
 
 -- Definitions of the prelude functions fst and snd
 
@@ -98,7 +97,6 @@ removeAll n (x : xs)
   | n == x = removeAll n xs
   | otherwise = x : removeAll n xs
 
-
 -- 10
 removeAllButFirst :: Int -> [Int] -> [Int]
 removeAllButFirst n (x : xs)
@@ -119,3 +117,19 @@ sorted [_] = True
 sorted (x : y : xs)
   | x <= y = sorted (y : xs)
   | otherwise = False
+
+-- 13
+prefix :: [Int] -> [Int] -> Bool
+prefix [] _ = True
+prefix _ [] = False
+prefix (x : xs) (y : ys)
+  | x == y = prefix xs ys
+  | otherwise = False
+
+-- 14
+subSequence :: [Int] -> [Int] -> Bool
+subSequence [] _ = True
+subSequence _ [] = False
+subSequence xs (y : ys)
+  | prefix xs (y : ys) = True
+  | otherwise = subSequence xs ys
