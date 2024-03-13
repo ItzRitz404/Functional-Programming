@@ -50,7 +50,6 @@ sumSquare = foldr (\x y -> x^2 + y) 0
 
 --5
 zeroToTen :: [Int] -> [Int]
--- zeroToTen = filter (\x -> x >= 0 && x <= 10)
 zeroToTen xs = filter range xs
     where
         range x = x >= 0 && x <= 10
@@ -64,12 +63,14 @@ countBetween :: Float -> Float -> [Float] -> Int
 countBetween x y = length . filter (\n -> n >= x && n <= y)
 
 --8
-alwaysPositive :: (Float -> Float) -> [Float] -> Bool
-alwaysPositive n = and . map (\x -> n x > 0)
+-- alwaysPositive :: (Float -> Float) -> [Float] -> Bool
+-- -- alwaysPositive n = and . map (\x -> n x > 0)
+-- -- alwaysPositive = map f xs 
+-- --     where
+-- --         f x = x > 0
 
 --9
 productSquareRoots :: [Float] -> Float
--- productSquareRoots = foldr (\x n -> if x >= 0 then sqrt x * n else n) 1.0
 productSquareRoots = foldr squareRoot 1.0
     where
         squareRoot x n 
@@ -90,3 +91,16 @@ removeLast n xs = reverse (removeFirst n (reverse xs))
 --12
 -- zeroToTen :: [Int] -> [Int]
 -- zeroToTen = filter (\x -> x >= 0 && x <= 10)
+
+--13
+--a
+alwaysPositive :: (Float -> Float) -> [Float] -> Bool
+alwaysPositive n = and . map (\x -> n x > 0)
+
+--b
+productSquareRoots1 :: [Float] -> Float
+productSquareRoots1 = foldr (\x n -> if x >= 0 then sqrt x * n else n) 1.0
+
+--c
+removeLast1 :: (a -> Bool) -> [a] -> [a]
+removeLast1 n xs = reverse (removeFirst n (reverse xs))
