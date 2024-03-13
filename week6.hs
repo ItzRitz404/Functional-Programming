@@ -89,8 +89,8 @@ removeLast :: (a -> Bool) -> [a] -> [a]
 removeLast n xs = reverse (removeFirst n (reverse xs))
 
 --12
--- zeroToTen :: [Int] -> [Int]
--- zeroToTen = filter (\x -> x >= 0 && x <= 10)
+zeroToTen2 :: [Int] -> [Int]
+zeroToTen2 = filter (\x -> x >= 0 && x <= 10)
 
 --13
 --a
