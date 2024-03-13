@@ -1,9 +1,9 @@
 {- Week5.hs
  This file illustrates list patterns and recursion over lists.
 -}
-
 -- import Main (duplicate)
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+
 {-# HLINT ignore "Use foldr" #-}
 import Prelude hiding (concat, fst, head, reverse, snd, sum, tail, zip)
 
@@ -60,8 +60,10 @@ duplicateHead (x : xs) = x : x : xs
 
 -- 3
 rotate :: [a] -> [a]
-rotate [] = []
-rotate (x : xs) = xs ++ [x]
+-- rotate [] = []
+-- rotate [x] = [x]
+rotate (x : y : xs) = y : x : xs
+rotate i = i
 
 -- 4
 listLength :: [a] -> Int
@@ -99,9 +101,12 @@ removeAll n (x : xs)
 
 -- 10
 removeAllButFirst :: Int -> [Int] -> [Int]
+removeAllButFirst _ [] = []
 removeAllButFirst n (x : xs)
   | n == x = x : removeAll n xs
   | otherwise = x : removeAllButFirst n xs
+
+-- removeAllButFirst 3 [1,2,3,5,3,4] = [1,2,3,5,4]
 
 -- 11
 listMarks :: String -> [StudentMark] -> [Int]
