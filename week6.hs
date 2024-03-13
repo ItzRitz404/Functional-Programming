@@ -65,11 +65,11 @@ countBetween :: Float -> Float -> [Float] -> Int
 countBetween x y = length . filter (\n -> n >= x && n <= y)
 
 -- 8
--- alwaysPositive :: (Float -> Float) -> [Float] -> Bool
--- -- alwaysPositive n = and . map (\x -> n x > 0)
--- -- alwaysPositive = map f xs
--- --     where
--- --         f x = x > 0
+alwaysPositive :: (Float -> Float) -> [Float] -> Bool
+-- alwaysPositive n = and . map (\x -> n x > 0)
+-- alwaysPositive = map f xs
+--     where
+--         f x = x > 0
 
 -- 9
 productSquareRoots :: [Float] -> Float
