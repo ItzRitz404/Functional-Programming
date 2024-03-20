@@ -41,35 +41,33 @@ onlyLowerCase = filter isLower
 
 -- 3
 orAll :: [Bool] -> Bool
-orAll = foldr (||) False
+-- orAll = foldr (||) False
+orAll [] = False
+orAll (x:xs) = x || orAll xs
 
 -- 4
 sumSquare :: [Int] -> Int
-sumSquare = foldr ((+) . (^ 2)) 0
-
+-- sumSquare = foldr ((+) . (^ 2)) 0
+sumSquare= foldr (+) 0 . map (^2) 
 -- map thn foldr
 -- sumSquare = foldr (\x y -> x^2 + y) 0
 
 -- 5
 zeroToTen :: [Int] -> [Int]
-zeroToTen = filter range
-  where
-    range x = x >= 0 && x <= 10
+zeroToTen = filter (<10) . filter (>0)
 
 -- 6
 squareRoots :: [Float] -> [Float]
-squareRoots = map sqrt ----------------------------------
+squareRoots = map sqrt 
 
 -- 7
 countBetween :: Float -> Float -> [Float] -> Int
 countBetween x y = length . filter (\n -> n >= x && n <= y)
 
 -- 8
--- alwaysPositive :: (Float -> Float) -> [Float] -> Bool
+alwaysPositive :: (Float -> Float) -> [Float] -> Bool
 -- alwaysPositive n = and . map (\x -> n x > 0)
--- alwaysPositive = map f xs
---     where
---         f x = x > 0
+alwaysPositive  f xs = length (filter (>=0) (map f xs)) == length xs
 
 -- 9
 productSquareRoots :: [Float] -> Float
