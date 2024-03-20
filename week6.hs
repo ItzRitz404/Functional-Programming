@@ -52,7 +52,7 @@ sumSquare = foldr ((+) . (^ 2)) 0
 
 -- 5
 zeroToTen :: [Int] -> [Int]
-zeroToTen = filter range 
+zeroToTen = filter range
   where
     range x = x >= 0 && x <= 10
 
