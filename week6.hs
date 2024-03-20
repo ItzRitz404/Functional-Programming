@@ -87,10 +87,9 @@ removeFirst f (x : xs)
   | otherwise = x : removeFirst f xs
 
 -- 11
-removeLast :: (a -> Bool) -> [a] -> [a]
--- removeLast n xs = reverse (removeFirst n (reverse xs)) ------------------------------
-removeLast f x = reverse (removeFirst f (reverse x))
-removeLast = reverse . 
+removeLast :: (a -> Bool) -> [a] -> [a] 
+-- removeLast f x = reverse (removeFirst f (reverse x))
+removeLast x = reverse . removeFirst x . reverse
 
 -- 12
 zeroToTen2 :: [Int] -> [Int]
