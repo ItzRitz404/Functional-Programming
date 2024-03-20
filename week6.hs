@@ -45,14 +45,14 @@ orAll = foldr (||) False
 
 -- 4
 sumSquare :: [Int] -> Int
-sumSquare = foldr (+) 0 (map (^ 2))
+sumSquare = foldr ((+) . (^ 2)) 0
 
 -- map thn foldr
 -- sumSquare = foldr (\x y -> x^2 + y) 0
 
 -- 5
 zeroToTen :: [Int] -> [Int]
-zeroToTen xs = filter range xs
+zeroToTen = filter range 
   where
     range x = x >= 0 && x <= 10
 
@@ -87,7 +87,7 @@ removeFirst f (x : xs)
   | otherwise = x : removeFirst f xs
 
 -- 11
-removeLast :: (a -> Bool) -> [a] -> [a] 
+removeLast :: (a -> Bool) -> [a] -> [a]
 -- removeLast f x = reverse (removeFirst f (reverse x))
 removeLast x = reverse . removeFirst x . reverse
 
