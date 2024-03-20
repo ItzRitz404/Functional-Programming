@@ -24,6 +24,7 @@ betterStudent (Student s1 m1) (Student s2 m2)
 -- Shapes algebraic type 
 data Shape = Circle Float |
              Rectangle Float Float
+                deriving (Eq,Ord,Show,Read)
 
 area :: Shape -> Float
 area (Circle r)      = pi * r * r
@@ -61,11 +62,11 @@ sumValues (Node n st1 st2) = n + sumValues st1 + sumValues st2
 
 --1
 data Month = January | February | March | April | May | June | July | August | September | October | November | December
-    deriving (Eq,Ord,Show,Read)
+    deriving (Eq,Show,Read)
 
 --2
 data Season = Winter | Spring | Summer | Autumn
-    deriving (Eq,Ord,Show,Read)
+    deriving (Eq,Show,Read)
 
 season :: Month -> Season
 season month
@@ -89,4 +90,12 @@ data Point = Point Float Float
     deriving (Eq,Show)
 
 --5
-data PositionedShape = PositionedShape Shape Point
+data PositionedShape = PositionedShape Point Shape
+    deriving (Eq,Show)
+
+--6
+move :: PositionedShape -> Float -> Float -> PositionedShape
+move (PositionedShape (Point x y) shape) dx dy = PositionedShape (Point (x + dx) (y + dy)) shape
+--move (Shape (Point x y)) dx dy = Shape Point (x + dx) (y + dy)
+
+--7
